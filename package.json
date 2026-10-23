@@ -2,10 +2,10 @@
   "name": "campuslands-api-notas",
   "version": "1.0.0",
   "description": "Ejercicio de práctica",
-  "main": "src/app.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
+    "start": "node --env-file=.env src/server.js",
+    "dev": "node --env-file=.env --watch src/server.js"
   },
   "keywords": [],
   "author": "",
