@@ -23,3 +23,12 @@ export async function listarNotas(req, res, next) {
       res.json({ data: nota });
     } catch (error) { next(error); }
   }
+
+  export async function actualizarNota(req, res, next) {
+    try {
+      const datos = new ActualizarNotaDTO(req.body);
+      const nota = await notaService.actualizar(req.params.id, datos);
+      if (!nota) return res.status(404).json({ error: "Nota no encontrada" });
+      res.json({ data: nota });
+    } catch (error) { next(error); }
+  }
