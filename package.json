@@ -1,0 +1,20 @@
+{
+  "name": "campuslands-api-notas",
+  "version": "1.0.0",
+  "description": "Ejercicio de práctica",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "express-validator": "^7.3.2",
+    "mysql2": "^3.24.6"
+  }
+}
