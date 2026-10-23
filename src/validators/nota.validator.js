@@ -15,3 +15,15 @@ export const validarCrearNota = [
     .withMessage("Categoría no válida"),
   responderErrores,
 ];
+
+export const validarActualizarNota = [
+    body("titulo").optional().trim().isLength({ min: 3, max: 60 }),
+    body("contenido").optional().trim().isLength({ min: 1, max: 280 }),
+    body("categoria").optional().isIn(["clase", "tarea", "idea"]),
+    responderErrores,
+  ];
+  
+  export const validarNotaId = [
+    param("id").isMongoId().withMessage("El id no es válido"),
+    responderErrores,
+  ];
