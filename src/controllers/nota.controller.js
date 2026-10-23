@@ -32,3 +32,11 @@ export async function listarNotas(req, res, next) {
       res.json({ data: nota });
     } catch (error) { next(error); }
   }
+
+  export async function eliminarNota(req, res, next) {
+    try {
+      const nota = await notaService.eliminar(req.params.id);
+      if (!nota) return res.status(404).json({ error: "Nota no encontrada" });
+      res.status(204).send();
+    } catch (error) { next(error); }
+  }
