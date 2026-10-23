@@ -1,13 +1,12 @@
-import mongoose from "mongoose";
 import app from "./app.js";
-const PORT = 3000;
-const MONGODB_URI = "mongodb://127.0.0.1:27017/api_notas_clase";
+import pool from "./config/database.js";
+const PORT = 4000;
 try {
-  await mongoose.connect(MONGODB_URI);
+  await pool.query("SELECT 1");
   app.listen(PORT, () => {
     console.log(`API lista en http://localhost:${PORT}`);
   });
 } catch (error) {
-  console.error("No fue posible conectar con MongoDB:", error.message);
+  console.error("No fue posible conectar con MySQL:", error.message);
   process.exit(1);
 }

@@ -24,6 +24,6 @@ export const validarActualizarNota = [
   ];
   
   export const validarNotaId = [
-    param("id").isMongoId().withMessage("El id no es válido"),
+    param("id").isInt({ min: 1 }).withMessage("El id debe ser un número entero positivo"),
     responderErrores,
   ];
