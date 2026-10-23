@@ -9,3 +9,17 @@ export async function crearNota(req, res, next) {
     res.status(201).json({ data: nota });
   } catch (error) { next(error); }
 }
+export async function listarNotas(req, res, next) {
+    try {
+      const notas = await notaService.listar();
+      res.json({ data: notas });
+    } catch (error) { next(error); }
+  }
+  
+  export async function obtenerNota(req, res, next) {
+    try {
+      const nota = await notaService.buscarPorId(req.params.id);
+      if (!nota) return res.status(404).json({ error: "Nota no encontrada" });
+      res.json({ data: nota });
+    } catch (error) { next(error); }
+  }
