@@ -6,9 +6,13 @@ export async function crearNota(req, res, next) {
   try {
     const datos = new CrearNotaDTO(req.body);
     const nota = await notaService.crear(datos);
+    res.cookie("ultimaCategoria", nota.categoria, {
+      httpOnly: true, sameSite: "lax", maxAge: 1000 * 60 * 60,
+    });
     res.status(201).json({ data: nota });
   } catch (error) { next(error); }
 }
+
 export async function listarNotas(req, res, next) {
     try {
       const notas = await notaService.listar();
